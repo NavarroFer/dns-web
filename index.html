@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <title>DNS</title>
+</head>
+<!-- Fernandez, Lima, Navarro -->
+
+<body>
+    <div class="container bg-dark text-white">
+        
+        <div class="text-center">
+            <h1>Consulta DNS</h1>
+        </div>
+            
+        <div class="row container justify-content-md-center m-4">
+            <div class="col-md-3"></div>
+            <div class="col-md-4">
+                <input type="text" class="form-control" id="inputDominio" placeholder="Dominio" required>
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-outline-success">Consultar</button>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row m-3 align-items-center">
+            <div class="col-md-2 mt-auto">
+                <select name="tipoDNS" id="ddlTipoDNS" class="form-control">
+                    <option value="0" selected>Tipo RR</option>
+                    <option value="A">A</option>
+                    <option value="AAAA">AAAA</option>
+                    <option value="ALL">ALL</option>
+                    <option value="CAA">CAA</option>
+                    <option value="CDS">CDS</option>
+                    <option value="CERT">CERT</option>
+                    <option value="CNAME">CNAME</option>
+                    <option value="DNAME">DNAME</option>
+                    <option value="DNSKEY">DNSKEY</option>
+                    <option value="DS">DS</option>
+                    <option value="HINFO">HINFO</option>
+                    <option value="INTEGRITY">INTEGRITY</option>
+                    <option value="IPSECKEY">IPSECKEY</option>
+                    <option value="KEY">KEY</option>
+                    <option value="MX">MX</option>
+                    <option value="NAPTR">NAPTR</option>
+                    <option value="NS">NS</option>
+                    <option value="NSEC">NSEC</option>
+                    <option value="NSEC3">NSEC3</option>
+                    <option value="NSEC3PARAM">NSEC3PARAM</option>
+                    <option value="PTR">PTR</option>
+                    <option value="RP">RP</option>
+                    <option value="RRSIG">RRSIG</option>
+                    <option value="SIG">SIG</option>
+                    <option value="SOA">SOA</option>
+                    <option value="SPF">SPF</option>
+                    <option value="SRV">SRV</option>
+                    <option value="SSHFP">SSHFP</option>
+                    <option value="TLSA">TLSA</option>
+                    <option value="TXT">TXT</option>
+                    <option value="WKS">WKS</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="inputEDNS" placeholder="EDNS Client Subnet" required>
+            </div>
+            <div class="col-md-4">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="desactivarDNSSEC">
+                    <label class="custom-control-label" for="desactivarDNSSEC">Desactivar validacion DNSSEC</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="detalleDNSSEC">
+                    <label class="custom-control-label" for="detalleDNSSEC">Mostrar detalles DNSSEC</label>
+                </div>
+            </div>
+
+        </div>  
+        <div class="container">
+            <p>
+                asdasd
+            </p>
+        </div>          
+    </div>
+    
+
+    <footer class="page-footer font-small blue bg-secondary fixed-bottom d-inline-block">
+    
+        <div class="footer text-center py-3">Redes de Computadoras - Universidad Nacional de Mar Del Plata</div>
+    
+    </footer>
+</body>
+
+<script src="./jQuery/jquery-3.5.1.min.js"></script>
+<script src="./bootstrap/js/bootstrap.js"></script>
+<script src="script.js"></script>
+
+</html>
