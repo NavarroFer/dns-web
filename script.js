@@ -54,14 +54,15 @@ $("#detalleDNSSEC").on('change', function() {
 function getDominioAPI(dominio){
 
     let tipoRR = $("#ddlTipoDNS").val();
-    if(tipoRR == "0"){
-        return alert("Elija un campo");
-    }
     let inputEDNS = $("#inputEDNS").val();
     let desactivarValidacionDNSSEC = switchDesactDNSSECStatus;
     let detallesDNSSEC = switchdetallesDNSSECStatus;
 
-    let url = `https://dns.google/resolve?name=${dominio}&type=${tipoRR}`;
+    let url = `https://dns.google/resolve?name=${dominio}`;
+
+    if(tipoRR != "0"){
+        url+=`&type=${tipoRR}`;
+    }
 
     if(inputEDNS != ""){
         url+= `&edns_client_subnet=${inputEDNS}`;
