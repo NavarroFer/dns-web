@@ -12,6 +12,16 @@ $('#inputDominio').keyup(function(event) {
     }
   });
 
+  $('#inputEDNS').keyup(function(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Trigger the button element with a click
+      document.getElementById("btnConsultar").click();
+    }
+  });
+
   $('#btnConsultar').click("keyup", function() {
       consultarDNS();
   });
@@ -44,8 +54,38 @@ $("#detalleDNSSEC").on('change', function() {
 function getDominioAPI(dominio){
 
     let tipoRR = $("#ddlTipoDNS").val();
+    if(tipoRR == "0"){
+        return alert("Elija un campo");
+    }
     let inputEDNS = $("#inputEDNS").val();
     let desactivarValidacionDNSSEC = switchDesactDNSSECStatus;
     let detallesDNSSEC = switchdetallesDNSSECStatus;
+
+    let url = `https://dns.google/resolve?name=${dominio}&type=${tipoRR}`;
+
+    if(inputEDNS != ""){
+        url+= `&edns_client_subnet=${inputEDNS}`;
+    }
+    if(desactivarValidacionDNSSEC){
+        url+= `&cd=true`;
+    }
+    if(detallesDNSSEC){
+        url+= `&do=true`;
+    }
+    
+
+    var XHR = new XMLHttpRequest();
+    XHR.addEventListener("load",mostrarRespuesta);
+    XHR.open("GET", url);
+    XHR.send();
     //TODO XHR GET
+}
+
+
+function mostrarRespuesta(){
+    console.log(this.responseText);
+    let respuesta = this.responseText;
+    JSON.parse(respuesta);
+    $("#respuestaJSON").textContent = JSON.stringify(respuesta, undefined, 2);
+
 }

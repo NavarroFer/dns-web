@@ -31,7 +31,9 @@
             <div class="col-md-2 mt-auto">
                 <select name="tipoDNS" id="ddlTipoDNS" class="form-control">
                     <option value="0" selected>Tipo RR</option>
+                    <!-- servidor ipv4 -->
                     <option value="A">A</option>
+                    <!-- servidor ipv6 -->
                     <option value="AAAA">AAAA</option>
                     <option value="ALL">ALL</option>
                     <option value="CAA">CAA</option>
@@ -45,7 +47,8 @@
                     <option value="INTEGRITY">INTEGRITY</option>
                     <option value="IPSECKEY">IPSECKEY</option>
                     <option value="KEY">KEY</option>
-                    <option value="MX">MX</option>
+                    <!-- servidor de mail -->
+                    <option value="MX">MX</option> 
                     <option value="NAPTR">NAPTR</option>
                     <option value="NS">NS</option>
                     <option value="NSEC">NSEC</option>
@@ -82,9 +85,7 @@
 
         </div>  
         <div class="container">
-            <p>
-                asdasd
-            </p>
+            <pre id="respuestaJSON"></pre>
         </div>          
     </div>
     
