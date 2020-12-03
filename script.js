@@ -78,14 +78,15 @@ function getDominioAPI(dominio){
     XHR.addEventListener("load",mostrarRespuesta);
     XHR.open("GET", url);
     XHR.send();
-    //TODO XHR GET
+    $('#respuestaJSON').fadeOut();
 }
 
 
 function mostrarRespuesta(){
+    $('#respuestaJSON').fadeIn();
     console.log(this.responseText);
-    let respuesta = this.responseText;
-    JSON.parse(respuesta);
-    $("#respuestaJSON").textContent = JSON.stringify(respuesta, undefined, 2);
+    let respuesta = JSON.parse(this.responseText);
+    $('#respuestaJSON').empty();
+    $('<pre class="text-white">' + JSON.stringify(respuesta, null, 2) + '</pre>').appendTo('#respuestaJSON');
 
 }
